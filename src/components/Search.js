@@ -10,7 +10,7 @@ import {
   Image,
 } from "react-native";
 import axios from "axios";
-
+import Badge from './Badge';
 
 const SPACING = 20;
 const AVATAR_SIZE = 48;
@@ -48,8 +48,10 @@ const Search = () => {
   const renderItem = ({ item }) => {
     return (
       <View style={styles.listItem}>
+        <Image source={{ uri: item.image }} style={styles.coverImage} />
         <View style={styles.metaInfo}>
           <Text style={styles.title}>{item.name}</Text>
+          <Badge value={item.symbol} />
         </View>
       </View>
     );

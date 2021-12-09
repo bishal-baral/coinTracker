@@ -5,8 +5,11 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
+  Image,
   StatusBar,
+
 } from "react-native";
+import * as Animatable from 'react-native-animatable';
 import { LinearGradient } from "expo-linear-gradient";
 import { useTheme } from "@react-navigation/native";
 
@@ -17,6 +20,54 @@ const SplashScreen = ({ navigation }) => {
     <View style={styles.container}>
       <StatusBar backgroundColor="#3E64FF" />
       <View style={styles.header}>
+        <Animatable.Image
+          animation='bounceIn'
+          source={require('../assets/coins.png')}
+          style={{ marginLeft: 250, width: 50, height: 50,}}
+          resizeMode='stretch'
+        />
+          <Animatable.Image
+          animation='bounceIn'
+          source={require('../assets/bitcoin.png')}
+          style={{ marginRight: 250, width: 50, height: 50,}}
+          resizeMode='stretch'
+        /> 
+                <Animatable.Image
+          animation='bounceIn'
+          source={require('../assets/ethereum.png')}
+          style={{  width: 50, height: 50,}}
+          resizeMode='stretch'
+        />
+                <Animatable.Image
+          animation='bounceIn'
+          source={require('../assets/iota.png')}
+          style={{ marginLeft: 250, width: 50, height: 50,}}
+          resizeMode='stretch'
+        />
+                <Animatable.Image
+          animation='bounceIn'
+          source={require('../assets/money.png')}
+          style={{ marginRight: 250, width: 50, height: 50,}}
+          resizeMode='stretch'
+        />
+                        <Animatable.Image
+          animation='bounceIn'
+          source={require('../assets/neo.png')}
+          style={{ marginLeft: 150, width: 50, height: 50,}}
+          resizeMode='stretch'
+        />
+                        <Animatable.Image
+          animation='bounceIn'
+          source={require('../assets/ripple.png')}
+          style={{ marginRight: 150, width: 50, height: 50,}}
+          resizeMode='stretch'
+        />
+                        <Animatable.Image
+          animation='bounceIn'
+          source={require('../assets/tether.png')}
+          style={{ marginLeft: 250, width: 50, height: 50,}}
+          resizeMode='stretch'
+        />
       </View>
       <View
         style={[

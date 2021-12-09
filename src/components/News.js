@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NEWS_API_KEY } from "@env";
-import { Card} from "react-native-paper";
+import { Card, Title, Paragraph } from "react-native-paper";
 import {
   View,
   Text,
@@ -62,6 +62,7 @@ const News = () => {
                 borderColor: "black",
                 borderRadius: 5,
                 borderBottomWidth: 1,
+                padding: 5
               }}
               onPress={() => {
                 Linking.openURL(`${url}`);
@@ -75,12 +76,16 @@ const News = () => {
                     margin: 10,
                   }}
                 >
-                  <Text>{title}</Text>
+                  <Title>{title}</Title>
                 </View>
+
+                <View style={{flex:1/3}}>
+                            <Image style={{width:120, height:120}} source={{uri: urlToImage}} />
+                        </View>  
               </View>
               <View style={{ margin: 10 }}>
-                <Text>{description}</Text>
-                <Text>{Date.parse(date)}</Text>
+                <Paragraph >{description}</Paragraph>
+                <Text>{date}</Text>
               </View>
             </Card>
           );

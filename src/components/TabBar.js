@@ -21,6 +21,7 @@ const TabBar = ({ state, navigation }) => {
         {routes.map((route, index) => (
           <Tab
             tab={route}
+            icon={route.params.icon}
             onPress={() => handlePress(route.name, index)}
             color={renderColor(route.name)}
             key={route.key}

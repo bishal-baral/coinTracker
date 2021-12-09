@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
 import { View, StyleSheet } from "react-native";
 import {
+  Avatar,
   Title,
+  Caption,
   Drawer,
+  Text,
+  Switch,
 } from "react-native-paper";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { FontAwesome5 } from "@expo/vector-icons";
@@ -23,31 +27,56 @@ export function DrawerContent(props) {
                 marginTop: 15,
               }}
             >
+              <Avatar.Image
+                source={{
+                  uri: 'https://assets.gadgets360cdn.com/img/crypto/dogecoin-og-logo.png',
+                }}
+                size={50}
+              />
               <View style={{ marginLeft: 15, flexDirection: "column" }}>
                 <Title style={styles.title}>trader doge</Title>
+                <Caption
+                  style={styles.caption}
+                  ellipsizeMode='tail'
+                  numberOfLines={1}
+                >
+                  test@test.com
+                </Caption>
               </View>
             </View>
           </View>
           <Drawer.Section style={styles.drawerSection}>
             <DrawerItem
+              icon={({ color, size }) => (
+                <FontAwesome5 name='coins' color={color} size={size} />
+              )}
               label="allCoins"
               onPress={() => {
                 props.navigation.navigate("allCoins");
               }}
             />
             <DrawerItem
+              icon={({ color, size }) => (
+                <FontAwesome5 name='search-dollar' color={color} size={size} />
+              )}
               label="search"
               onPress={() => {
                 props.navigation.navigate("Search");
               }}
             />
             <DrawerItem
+              icon={({ color, size }) => (
+                <FontAwesome5 name='newspaper' color={color} size={size} />
+              )}
               label="news"
               onPress={() => {
                 props.navigation.navigate("news");
               }}
             />
             <DrawerItem
+              icon={({ color, size }) => (
+                <FontAwesome5 name='atom' color={color} size={size} />
+              )}
               label="preferences"
               onPress={() => {
                 props.navigation.navigate("prefs");
@@ -55,6 +84,9 @@ export function DrawerContent(props) {
             />
           </Drawer.Section>
           <DrawerItem
+            icon={({ color, size }) => (
+              <FontAwesome5 name='hand-point-left' color={color} size={size} />
+            )}
             label="signOut"
             onPress={() => {
               signOut();

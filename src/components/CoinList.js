@@ -11,6 +11,8 @@ import {
   ActivityIndicator,
   RefreshControl,
 } from "react-native";
+import { AntDesign } from '@expo/vector-icons';
+import Badge from './Badge';
 
 const SPACING = 10;
 const AVATAR_SIZE = 70;
@@ -99,6 +101,11 @@ const CoinList = ({ navigation, order }) => {
     const renderPriceChange = (num) => {
       return (
         <Text style={num > 0 ? styles.rise : styles.drop}>
+          <AntDesign
+            name={num > 0 ? 'caretup' : 'caretdown'}
+            color={num > 0 ? '#3E64FF' : '#fb2c33'}
+            size={10}
+          />{' '}
           {percentageFormat(item.price_change_percentage_24h)}%
         </Text>
       );
@@ -114,6 +121,7 @@ const CoinList = ({ navigation, order }) => {
         style={[styles.cardList, anim]}
         onPress={() => navigation.navigate("trends", { itemId: `${item.id}` })}
       >
+        <Image style={styles.itemImage} source={{ uri: item.image }} />
         <View style={styles.wrapper}>
           <View style={styles.coinText}>
             <Text
@@ -123,6 +131,7 @@ const CoinList = ({ navigation, order }) => {
             >
               {item.name}
             </Text>
+            <Badge value={item.symbol} />
           </View>
           <Text style={styles.itemVolume}>
             &#36;{numberFormat(item.total_volume || 0)}
